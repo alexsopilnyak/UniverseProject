@@ -19,10 +19,7 @@ final class BlackHole: Identifiable {
 
 extension BlackHole: AgeUpdator {
   func updateAge() {
-    age += 1
+      self.age += 1
   }
-  
-  
 }
 
-//extension BlackHole: GalaxyCompatible {}

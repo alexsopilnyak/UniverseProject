@@ -8,8 +8,5 @@
 import Foundation
 
 protocol UniverseEventsDelegate: AnyObject {
-  func galaxiesCountDidUpdate(galaxies: [Galaxy])
-  func stellarSystemsCountDidUpdate()
-  func plantesCountDidUpdate()
-  func blackHoleCreated()
+  func galaxiesCountDidUpdate()
 }

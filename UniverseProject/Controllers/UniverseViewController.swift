@@ -11,47 +11,42 @@ class UniverseViewController: UIViewController {
   
   @IBOutlet private weak var collectionView: UICollectionView!
   
-  
-  let universe = Universe(timer: TimeTracker(withTimeInterval: 0.1))
+  let universe = Universe(timer: TimeTracker(withTimeInterval: 1))
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    universe.eventsDelegate = self
-    
-    
-    print(universe.galaxies.count)
-    navigationItem.title = universe.id
-    collectionView.dataSource = self
-    collectionView.delegate = self
-    
-    
-    let nibCell = UINib(nibName: Constants.cellID, bundle: nil)
-    collectionView.register(nibCell, forCellWithReuseIdentifier: Constants.cellID)
+    setupDelegates()
+    setupCell()
+    setupTitles()
     
   }
   
+  private func setupTitles() {
+    navigationItem.title = universe.id
+  }
   
+  private func setupDelegates() {
+    collectionView.dataSource = self
+    collectionView.delegate = self
+    universe.eventsDelegate = self
+  }
+  
+  private func setupCell() {
+    let nibCell = UINib(nibName: Constants.cellID, bundle: nil)
+    collectionView.register(nibCell, forCellWithReuseIdentifier: Constants.cellID)
+  }
 }
 
 
 extension UniverseViewController: UniverseEventsDelegate {
-  func galaxiesCountDidUpdate(galaxies: [Galaxy]) {
-    collectionView.reloadData()
-  }
-  
-  func stellarSystemsCountDidUpdate() {
-  }
-  
-  func plantesCountDidUpdate() {
-  }
-  
-  func blackHoleCreated() {
+  func galaxiesCountDidUpdate() {
+    DispatchQueue.main.async {[weak self] in
+      guard let self = self else {return}
+      self.collectionView.reloadData()
+    }
   }
 }
-
-
 
 
 extension UniverseViewController: UICollectionViewDelegateFlowLayout {
@@ -60,10 +55,8 @@ extension UniverseViewController: UICollectionViewDelegateFlowLayout {
   }
 }
 
-extension UniverseViewController: UICollectionViewDelegate {}
 
 extension UniverseViewController: UICollectionViewDataSource {
-  
   func numberOfSections(in collectionView: UICollectionView) -> Int {
     1
   }
@@ -74,18 +67,22 @@ extension UniverseViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as! ItemCollectionViewCell
+    
     let galaxy = universe.galaxies[indexPath.row]
-    cell.label.text = galaxy.id
-    cell.count.text = galaxy.age.description
-    cell.elementsNumber.text = (galaxy.stellarPlanetSystems.count + galaxy.blackHoles.count).description
+      cell.label.text = galaxy.id
+      cell.count.text = galaxy.age.description
+      cell.elementsNumber.text = (galaxy.stellarPlanetSystems.count + galaxy.blackHoles.count).description
+
     return cell
   }
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let destination = storyboard.instantiateViewController(identifier: "GalaxyViewController") as! GalaxyViewController
-    destination.galaxy = universe.galaxies[indexPath.row]
-    self.navigationController?.pushViewController(destination, animated: true)
-    //self.performSegue(withIdentifier: Constants.toGalaxyVCSegue, sender: indexPath)
+    
+    let storyboard = UIStoryboard(name: Constants.storyboardName, bundle: nil)
+    let destination = storyboard.instantiateViewController(identifier: Constants.galaxyVCid) as! GalaxyViewController
+      destination.galaxy = self.universe.galaxies[indexPath.row]
+      self.navigationController?.pushViewController(destination, animated: true)
+    
+   
   }
 }

@@ -15,20 +15,20 @@ final class Universe {
   
   weak var eventsDelegate: UniverseEventsDelegate?
   
-  var timer: TimeTracker?
+  private var timer: TimeTracker?
   
   lazy var galaxies = [Galaxy]()
+  
   private var time = 0 {
     willSet {
-      galaxies.forEach{$0.updateAge()}
+      self.galaxies.forEach{$0.updateAge()}
       
       if newValue % 10 == 0 {
-        galaxyBorn()
-        eventsDelegate?.galaxiesCountDidUpdate(galaxies: galaxies)
-        
+        self.galaxyBorn()
+        self.eventsDelegate?.galaxiesCountDidUpdate()
       }
       if newValue % 30 == 0 {
-        collapse()
+        self.collapse()
       }
     }
   }
@@ -43,21 +43,20 @@ final class Universe {
       self.time = time
       print("Time: \(time)")
     }
-    print("UNIVERSE - \(id) == BORN")
   }
   
   deinit {
     timer?.stop()
   }
   
-  func galaxyBorn() {
-    let galaxy = Galaxy(delegate: self)
-    galaxies.append(galaxy)
+  private func galaxyBorn() {
+    let galaxy = Galaxy()
+    self.galaxies.append(galaxy)
   }
   
-  func collapse()  {
+  private func collapse()  {
     guard galaxies.count > 2 else {return}
-    let filteredGalaxies = galaxies.filter{ $0.age > 180 }
+    let filteredGalaxies = galaxies.filter{ $0.age > Constants.filterGalaxyAge }
     
     guard filteredGalaxies.count > 2 else { return }
     
@@ -69,20 +68,11 @@ final class Universe {
     guard let secondGalaxyIndex = galaxies.firstIndex(of: secondGalaxy) else {return}
     
     galaxies.remove(at: firstGalaxyIndex)
-//    print("Galaxy \(firstGalaxy.id) removed. Elements:")
-//    firstGalaxy.stellarPlanetSystems.forEach{print($0.id)}
-//    print("====================")
+    
     let newGalaxy =  mergeGalaxies(firstGalaxy, secondGalaxy)
-//    print("New galaxy added: \(newGalaxy.id), with elements:")
-//    newGalaxy.stellarPlanetSystems.forEach{print($0.id)}
-//    print("====================")
     galaxies.insert(newGalaxy, at: firstGalaxyIndex)
-    
-    
     galaxies.remove(at: secondGalaxyIndex)
-//    print("Galaxy \(secondGalaxy.id) removed. Elements: ")
-//    secondGalaxy.stellarPlanetSystems.forEach{print($0.id)}
-//    print("====================")
+    
   }
   
   private func mergeGalaxies(_ first:  Galaxy, _ second:  Galaxy) -> Galaxy  {
@@ -90,32 +80,28 @@ final class Universe {
     let newStellarSystems = someStellarSystemsToDestroy(allStellarSystems)
     
     if first.weight > second.weight {
-      return Galaxy(delegate: self, type: first.type, age: first.age, stellarPlanetSystems: newStellarSystems)
+      return Galaxy(type: first.type, age: first.age, stellarPlanetSystems: newStellarSystems)
     } else {
-      return Galaxy(delegate: self, type: second.type, age: second.age, stellarPlanetSystems: newStellarSystems)
+      return Galaxy(type: second.type, age: second.age, stellarPlanetSystems: newStellarSystems)
     }
   }
   
   
   private func someStellarSystemsToDestroy(_ allStellarSystems: [StellarPlanetSystem]) -> [StellarPlanetSystem] {
-  
+    
     switch allStellarSystems.count {
     case 0: return [StellarPlanetSystem]()
     case 1: return allStellarSystems
     case 2...10:
       var newSystems = allStellarSystems.shuffled()
-      let last = newSystems.removeLast()
-      print("removedElement: \(last.id)")
-      print("====================")
+      newSystems.removeLast()
       return newSystems
       
     default:
-      let numberSystemsToDestroy = Int(((Double(allStellarSystems.count * 10)) / 100.0).rounded())
+      let numberSystemsToDestroy = Int(((Double(allStellarSystems.count * Constants.percentSystemToDestroy)) / 100.0).rounded())
       var newSystems = allStellarSystems.shuffled()
       for _ in 1...numberSystemsToDestroy {
-        let last = newSystems.removeLast()
-        print("removedElement: \(last.id)")
-        print("====================")
+        newSystems.removeLast()
       }
       
       return newSystems
@@ -124,12 +110,8 @@ final class Universe {
 }
 
 
-//MARK:- Extensions
 
 
-extension Universe: UniverseDelegate {
-  //updates from galaxies.... etc
-}
 
 
 

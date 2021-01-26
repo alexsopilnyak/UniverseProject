@@ -12,46 +12,44 @@ class GalaxyViewController: UIViewController {
   @IBOutlet private weak var collectionView: UICollectionView!
   
   weak var galaxy: Galaxy?
-  var sections: [Int: [AnyObject]] = [:]
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    galaxy!.eventsDelegate = self
-   navigationItem.title = galaxy!.id
-
-    collectionView.dataSource = self
-    collectionView.delegate = self
-    sections[0] = galaxy!.blackHoles
-    sections[1] = galaxy!.stellarPlanetSystems
-    
-    
-    let nibCell = UINib(nibName: Constants.cellID, bundle: nil)
-    collectionView.collectionViewLayout = createCompositionalLayout()
-    collectionView.register(nibCell, forCellWithReuseIdentifier: Constants.cellID)
-   
-    
-    
-    collectionView.backgroundColor = .systemTeal
+    setupTitles()
+    setupDelegates()
+    setupCell()
     
   }
   
-  func createCompositionalLayout() -> UICollectionViewLayout {
+  private func setupTitles() {
+    guard let galaxy = galaxy else { return }
+    navigationItem.title = galaxy.id
+  }
+  
+  private func setupDelegates() {
+    collectionView.dataSource = self
+    collectionView.delegate = self
+    guard let galaxy = galaxy else { return }
+    galaxy.eventsDelegate = self
+  }
+  
+  private func setupCell() {
+    let nibCell = UINib(nibName: Constants.cellID, bundle: nil)
+    collectionView.collectionViewLayout = createCompositionalLayout()
+    collectionView.register(nibCell, forCellWithReuseIdentifier: Constants.cellID)
+  }
+  
+  private func createCompositionalLayout() -> UICollectionViewLayout {
     let layout = UICollectionViewCompositionalLayout {  (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-      let section = self.sections[sectionIndex]
-      
-      switch section {
-      default:
-         return self.createSection()
-      }
+      return self.createSection()
     }
     
     return layout
   }
   
   
-  func createSection() -> NSCollectionLayoutSection {
+  private func createSection() -> NSCollectionLayoutSection {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(50))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 0, bottom: 8, trailing: 0)
@@ -65,86 +63,98 @@ class GalaxyViewController: UIViewController {
     return section
   }
   
+  private func showAlert() {
+    
+    let alertController = UIAlertController(title: "Galaxy destroyed", message: "Press 'OK' button to move to the all galaxies.", preferredStyle: .alert)
+    let okAction = UIAlertAction(title: "OK", style: .default) { [ weak self ] (alert) in
+      self?.moveToGalaxies()
+    }
+    alertController.addAction(okAction)
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
+  private func moveToGalaxies() {
+    if let viewControllers: [UIViewController] = self.navigationController?.viewControllers {
+      for vc in viewControllers {
+        if(vc is UniverseViewController){
+          self.navigationController!.popToViewController(vc, animated: true);
+        }
+      }
+    }
+  }
   
 }
 
 
 extension GalaxyViewController: GalaxyEventsDelegate {
-  func galaxyDestroyed() {
-  
-      collectionView.backgroundColor = .black
-    navigationController?.popViewController(animated: true)
+  func galaxyElementsCountDidUpdate() {
     
-  }
-  
-  func stellarSystemsCountDidUpdate() {
-   
-    
-    self.sections[0] = self.galaxy!.blackHoles
-    self.sections[1] = self.galaxy!.stellarPlanetSystems
-    
-    DispatchQueue.main.async {
-self.collectionView.reloadData()
+    DispatchQueue.main.async {[weak self] in
+      guard let self = self else {return}
+      
+      self.collectionView.reloadData()
     }
-    
   }
   
-  func blackHolesCountDidUpdate() {
-  
+  func galaxyDestroyed() {
+        showAlert()
   }
   
 }
 
 extension GalaxyViewController: UICollectionViewDelegate {
+}
+
+extension GalaxyViewController: UICollectionViewDataSource {
   
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 2
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
+    guard let galaxy = galaxy else { return 0 }
+    
+    switch section {
+    case 0:
+      return galaxy.blackHoles.count
+    default:
+      return galaxy.stellarPlanetSystems.count
+    }
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as! ItemCollectionViewCell
+    if let galaxy = galaxy {
+      switch indexPath.section {
+      case 0:
+        let blackHoleItem = galaxy.blackHoles[indexPath.row]
+        cell.label.text = blackHoleItem.id
+        cell.count.text = blackHoleItem.age.description
+        cell.isUserInteractionEnabled = false
+      default:
+        let stellarSystemItem = galaxy.stellarPlanetSystems[indexPath.row]
+        cell.label.text = stellarSystemItem.id
+        cell.count.text = stellarSystemItem.age.description
+        cell.elementsNumber.text = (stellarSystemItem.planets.count + 1).description
+      }
+    }
+    return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    let storyboard = UIStoryboard(name: Constants.storyboardName, bundle: nil)
+    let destination = storyboard.instantiateViewController(identifier: Constants.stellarSystemsVCid) as! StellarSystemViewController
+    guard let galaxy = galaxy else { return }
+    destination.stellarSystem = galaxy.stellarPlanetSystems[indexPath.row]
+    self.navigationController?.pushViewController(destination, animated: true)
+    
+  }
   
 }
 
 
 
-extension GalaxyViewController: UICollectionViewDataSource {
-  
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return sections.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return sections[section]!.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as! ItemCollectionViewCell
-    
-    let section = sections[indexPath.section]
-    let item = section![indexPath.row]
-    
-    switch item {
-    case is BlackHole:
-    
-      let blackHoleItem = item as! BlackHole
-      cell.label.text = blackHoleItem.id
-      cell.count.text = blackHoleItem.age.description
-      cell.isUserInteractionEnabled = false
-    default:
-      let stellarSystem = item as! StellarPlanetSystem
-      cell.label.text = stellarSystem.id
-      cell.count.text = stellarSystem.age.description
-    }
-    
-    return cell
-  }
-
-   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let destination = storyboard.instantiateViewController(identifier: "StellarSystemViewController") as! StellarSystemViewController
-    destination.stellarSystem = galaxy?.stellarPlanetSystems[indexPath.row]
-    self.navigationController?.pushViewController(destination, animated: true)
-   
-  }
-    
-  }
 
 
-
-
-  

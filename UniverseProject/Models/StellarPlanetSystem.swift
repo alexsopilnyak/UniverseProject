@@ -8,7 +8,6 @@
 import Foundation
 
 
-
 final class StellarPlanetSystem {
   
   weak var delegate: GalaxyDelegate?
@@ -16,25 +15,22 @@ final class StellarPlanetSystem {
   
   var hostStar: Star?
   lazy var planets =  [Planet]()
-  
+  let id = "StellarSystem_\(Double.random(in: Constants.idRange))"
   var age = 0 {
     willSet {
       if newValue % 10 == 0 {
         spawnPlanet()
         eventsDelegate?.planetsCountDidUpdate()
+        
       }
     }
   }
   
-  var weight: Double {
+    var weight: Double {
     var totalWeight = hostStar!.weight
     planets.forEach{ totalWeight += $0.weight}
     return totalWeight
   }
-  let id = "StellarSystem_\(Int.random(in: 4000...6000)))"
-//  var containsBlackHole = false
-  
-  
   
   
   init(delegate: GalaxyDelegate) {
@@ -43,11 +39,11 @@ final class StellarPlanetSystem {
   }
   
   deinit {
-   // print("\(id) destroyed")
+    eventsDelegate?.stellarSystemDestroyed()
   }
   
 
-  func spawnPlanet() {
+  private func spawnPlanet() {
     guard planets.count < Constants.planetsMaxNumber else { return }
     planets.append(Planet(delegate: self, star: hostStar!))
   }
@@ -57,10 +53,6 @@ final class StellarPlanetSystem {
     Star(delegate: self)
   }
   
-//  func starEvolveToBlackHole() {
-//    containsBlackHole = true
-//    planets = []
-//  }
   
 }
 
@@ -68,9 +60,10 @@ final class StellarPlanetSystem {
 
 extension StellarPlanetSystem: AgeUpdator {
   func updateAge() {
-    age += 1
-    hostStar?.updateAge()
-    planets.forEach{$0.updateAge()}
+      self.age += 1
+      self.planets.forEach{$0.updateAge()}
+      self.hostStar?.updateAge()
+    
   }
 }
 
@@ -78,18 +71,17 @@ extension StellarPlanetSystem: Equatable {
   static func == (lhs: StellarPlanetSystem, rhs: StellarPlanetSystem) -> Bool {
     lhs.id == rhs.id
   }
-  
-  
 }
 
 extension StellarPlanetSystem: StellarPlanetSystemDelegate {
   func starBecomeBlackHole() {
-    planets = []
     delegate?.blackHoleBornedInStellarSystemWithHostStar(self)
+    planets = []
+    
   }
 }
 
-//extension StellarPlanetSystem: Destroyable {}
+
 
 
 

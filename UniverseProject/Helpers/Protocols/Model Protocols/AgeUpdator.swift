@@ -8,6 +8,5 @@
 import Foundation
 
 protocol AgeUpdator {
-  //var age: Int {get set}
   func updateAge()
 }

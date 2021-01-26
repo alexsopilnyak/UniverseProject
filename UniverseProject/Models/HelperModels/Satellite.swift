@@ -19,14 +19,7 @@ final class Satellite: CelesticalBody {
   
   init(hostPlanet: Planet) {
     self.hostPlanet = hostPlanet
-    self.id = "Satellite_\(type)-\(String(format: "%.3f", weight * radius))"
-//    print("==============================================================================")
-//    print("SATELLITE - \(id), HOST - \(hostPlanet.id), WEIGHT - \(weight), RADIUS - \(radius) == BORN")
-  }
-  
-  deinit {
-//    print("________________________________________________________________________________________________________")
-//    print("SATELLITE - \(id) == DESTROYED")
+    self.id = "Satellite_\(type)-\(String(format: "%.5f", weight * radius))"
   }
 }
 
@@ -35,6 +28,6 @@ final class Satellite: CelesticalBody {
 
 extension Satellite: AgeUpdator {
   func updateAge() {
-    age += 1
+      self.age += 1
   }
 }

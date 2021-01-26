@@ -10,9 +10,8 @@
 		E501EDD825BA371F0094FFF2 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EDD725BA371F0094FFF2 /* TimeTracker.swift */; };
 		E501EDDB25BACB940094FFF2 /* UniverseEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EDDA25BACB940094FFF2 /* UniverseEventsDelegate.swift */; };
 		E501EE5825BB5D5F0094FFF2 /* StellarSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EE5725BB5D5F0094FFF2 /* StellarSystemViewController.swift */; };
-		E501EE5B25BB5D800094FFF2 /* SatelliteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EE5A25BB5D800094FFF2 /* SatelliteViewController.swift */; };
+		E501EE5B25BB5D800094FFF2 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EE5A25BB5D800094FFF2 /* PlanetViewController.swift */; };
 		E501EE5E25BB5DC20094FFF2 /* UniverseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EE5D25BB5DC20094FFF2 /* UniverseViewController.swift */; };
-		E540705325B8DFC400CEDFEC /* UniverseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E540705225B8DFC400CEDFEC /* UniverseDelegate.swift */; };
 		E540705625B8DFF400CEDFEC /* GalaxyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E540705525B8DFF400CEDFEC /* GalaxyDelegate.swift */; };
 		E540705A25B8E01B00CEDFEC /* StellarPlanetSystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E540705925B8E01B00CEDFEC /* StellarPlanetSystemDelegate.swift */; };
 		E540705E25B8E0F200CEDFEC /* AgeUpdator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E540705D25B8E0F200CEDFEC /* AgeUpdator.swift */; };
@@ -35,6 +34,7 @@
 		E560E32525B057E700D4817E /* EvolutionStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560E32425B057E700D4817E /* EvolutionStage.swift */; };
 		E56A635925BC7361009B7B92 /* GalaxyEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A635825BC7361009B7B92 /* GalaxyEventsDelegate.swift */; };
 		E56A636225BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A636125BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift */; };
+		E56A638625BF4EC9009B7B92 /* PlanetEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A638525BF4EC9009B7B92 /* PlanetEventsDelegate.swift */; };
 		E59086F425B207450025A591 /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59086F325B207450025A591 /* Satellite.swift */; };
 		E5EDFAA925BB7D8E00DED421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5EDFAA825BB7D8E00DED421 /* Main.storyboard */; };
 		E5EDFAC125BC3DB900DED421 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDFABF25BC3DB900DED421 /* ItemCollectionViewCell.swift */; };
@@ -45,9 +45,8 @@
 		E501EDD725BA371F0094FFF2 /* TimeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
 		E501EDDA25BACB940094FFF2 /* UniverseEventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseEventsDelegate.swift; sourceTree = "<group>"; };
 		E501EE5725BB5D5F0094FFF2 /* StellarSystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellarSystemViewController.swift; sourceTree = "<group>"; };
-		E501EE5A25BB5D800094FFF2 /* SatelliteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatelliteViewController.swift; sourceTree = "<group>"; };
+		E501EE5A25BB5D800094FFF2 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
 		E501EE5D25BB5DC20094FFF2 /* UniverseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseViewController.swift; sourceTree = "<group>"; };
-		E540705225B8DFC400CEDFEC /* UniverseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseDelegate.swift; sourceTree = "<group>"; };
 		E540705525B8DFF400CEDFEC /* GalaxyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyDelegate.swift; sourceTree = "<group>"; };
 		E540705925B8E01B00CEDFEC /* StellarPlanetSystemDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellarPlanetSystemDelegate.swift; sourceTree = "<group>"; };
 		E540705D25B8E0F200CEDFEC /* AgeUpdator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeUpdator.swift; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		E560E32425B057E700D4817E /* EvolutionStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionStage.swift; sourceTree = "<group>"; };
 		E56A635825BC7361009B7B92 /* GalaxyEventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyEventsDelegate.swift; sourceTree = "<group>"; };
 		E56A636125BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellarSystemEventsDelegate.swift; sourceTree = "<group>"; };
+		E56A638525BF4EC9009B7B92 /* PlanetEventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetEventsDelegate.swift; sourceTree = "<group>"; };
 		E59086F325B207450025A591 /* Satellite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satellite.swift; sourceTree = "<group>"; };
 		E5EDFAA825BB7D8E00DED421 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		E5EDFABF25BC3DB900DED421 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 			children = (
 				E540705D25B8E0F200CEDFEC /* AgeUpdator.swift */,
 				E560E30C25B0363600D4817E /* CelesticalBody.swift */,
-				E540705225B8DFC400CEDFEC /* UniverseDelegate.swift */,
 				E540705525B8DFF400CEDFEC /* GalaxyDelegate.swift */,
 				E540705925B8E01B00CEDFEC /* StellarPlanetSystemDelegate.swift */,
 			);
@@ -144,12 +143,12 @@
 		E560E2ED25B032B400D4817E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E501EDC625B9ADC50094FFF2 /* HelperModels */,
 				E560E2FC25B0348500D4817E /* Universe.swift */,
 				E560E30025B034AC00D4817E /* Galaxy.swift */,
 				E560E31625B0402300D4817E /* StellarPlanetSystem.swift */,
 				E560E30625B034D900D4817E /* Star.swift */,
 				E560E30925B0351500D4817E /* Planet.swift */,
+				E501EDC625B9ADC50094FFF2 /* HelperModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,7 +169,7 @@
 				E501EE5D25BB5DC20094FFF2 /* UniverseViewController.swift */,
 				E560E2DC25B031CF00D4817E /* GalaxyViewController.swift */,
 				E501EE5725BB5D5F0094FFF2 /* StellarSystemViewController.swift */,
-				E501EE5A25BB5D800094FFF2 /* SatelliteViewController.swift */,
+				E501EE5A25BB5D800094FFF2 /* PlanetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -201,6 +200,7 @@
 				E501EDDA25BACB940094FFF2 /* UniverseEventsDelegate.swift */,
 				E56A635825BC7361009B7B92 /* GalaxyEventsDelegate.swift */,
 				E56A636125BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift */,
+				E56A638525BF4EC9009B7B92 /* PlanetEventsDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -315,13 +315,13 @@
 				E560E2F925B0342400D4817E /* Constants.swift in Sources */,
 				E540705625B8DFF400CEDFEC /* GalaxyDelegate.swift in Sources */,
 				E540705A25B8E01B00CEDFEC /* StellarPlanetSystemDelegate.swift in Sources */,
-				E501EE5B25BB5D800094FFF2 /* SatelliteViewController.swift in Sources */,
+				E501EE5B25BB5D800094FFF2 /* PlanetViewController.swift in Sources */,
 				E540705E25B8E0F200CEDFEC /* AgeUpdator.swift in Sources */,
 				E59086F425B207450025A591 /* Satellite.swift in Sources */,
 				E560E31725B0402300D4817E /* StellarPlanetSystem.swift in Sources */,
 				E560E30725B034D900D4817E /* Star.swift in Sources */,
+				E56A638625BF4EC9009B7B92 /* PlanetEventsDelegate.swift in Sources */,
 				E560E31D25B04E7200D4817E /* PlanetType.swift in Sources */,
-				E540705325B8DFC400CEDFEC /* UniverseDelegate.swift in Sources */,
 				E5EDFAC125BC3DB900DED421 /* ItemCollectionViewCell.swift in Sources */,
 				E501EE5825BB5D5F0094FFF2 /* StellarSystemViewController.swift in Sources */,
 			);

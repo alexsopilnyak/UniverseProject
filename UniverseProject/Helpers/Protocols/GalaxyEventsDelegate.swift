@@ -8,7 +8,6 @@
 import Foundation
 
 protocol GalaxyEventsDelegate: AnyObject {
-  func stellarSystemsCountDidUpdate()
-  func blackHolesCountDidUpdate()
+  func galaxyElementsCountDidUpdate()
   func galaxyDestroyed()
 }

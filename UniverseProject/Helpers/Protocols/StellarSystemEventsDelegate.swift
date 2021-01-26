@@ -9,6 +9,6 @@ import Foundation
 
 protocol StellarSystemEventsDelegate: AnyObject {
   func planetsCountDidUpdate()
-  func starEvoluteToBlackHole()
   func stellarSystemDestroyed()
+  
 }

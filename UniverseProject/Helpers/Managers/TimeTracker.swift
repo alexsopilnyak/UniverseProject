@@ -19,10 +19,8 @@ import Foundation
   private var timeInterval: TimeInterval
   
   func start() {
-    timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { [weak self] _ in
-      guard let self = self else {return}
-      self.time += 1
-    })
+    timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: #selector(timerUpdates), userInfo: nil, repeats: true)
+    RunLoop.main.add(timer!, forMode: .common)
   }
   
   init(withTimeInterval timeInterval: TimeInterval) {
@@ -33,5 +31,9 @@ import Foundation
   func stop() {
     timer?.invalidate()
     timer = nil
+  }
+  
+  @objc func timerUpdates() {
+    time += 1
   }
 }
