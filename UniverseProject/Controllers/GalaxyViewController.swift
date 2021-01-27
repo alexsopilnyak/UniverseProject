@@ -21,7 +21,7 @@ class GalaxyViewController: UIViewController {
     setupCell()
     
   }
-  
+ 
   private func setupTitles() {
     guard let galaxy = galaxy else { return }
     navigationItem.title = galaxy.id
@@ -52,14 +52,14 @@ class GalaxyViewController: UIViewController {
   private func createSection() -> NSCollectionLayoutSection {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(50))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
-    item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 0, bottom: 8, trailing: 0)
+    item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0)
     
     let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                            heightDimension: .estimated(1))
     let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
     
     let section = NSCollectionLayoutSection(group: group)
-    section.contentInsets = NSDirectionalEdgeInsets.init(top: 10, leading: 20, bottom: 0, trailing: 20)
+    section.contentInsets = NSDirectionalEdgeInsets.init(top: 10, leading: 0, bottom: 0, trailing: 0)
     return section
   }
   
@@ -70,7 +70,14 @@ class GalaxyViewController: UIViewController {
       self?.moveToGalaxies()
     }
     alertController.addAction(okAction)
-    self.present(alertController, animated: true, completion: nil)
+    DispatchQueue.main.async {
+      if self.presentedViewController==nil{
+        self.present(alertController, animated: true, completion: nil)
+      }else{
+          self.presentedViewController!.present(alertController, animated: true, completion: nil)
+      }
+    }
+    
   }
   
   private func moveToGalaxies() {
@@ -98,6 +105,7 @@ extension GalaxyViewController: GalaxyEventsDelegate {
   
   func galaxyDestroyed() {
         showAlert()
+  
   }
   
 }
@@ -131,6 +139,7 @@ extension GalaxyViewController: UICollectionViewDataSource {
         let blackHoleItem = galaxy.blackHoles[indexPath.row]
         cell.label.text = blackHoleItem.id
         cell.count.text = blackHoleItem.age.description
+        cell.elementsNumber.text = "None"
         cell.isUserInteractionEnabled = false
       default:
         let stellarSystemItem = galaxy.stellarPlanetSystems[indexPath.row]

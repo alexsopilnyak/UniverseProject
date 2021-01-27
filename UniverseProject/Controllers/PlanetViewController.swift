@@ -22,6 +22,8 @@ class PlanetViewController: UIViewController {
     
   }
   
+
+  
   private func setupTitles() {
     guard let planet = planet else { return }
     navigationItem.title = planet.id
@@ -49,7 +51,14 @@ class PlanetViewController: UIViewController {
       self?.moveToGalaxies()
     }
     alertController.addAction(okAction)
-    self.present(alertController, animated: true, completion: nil)
+    DispatchQueue.main.async {
+      if self.presentedViewController==nil{
+        self.present(alertController, animated: true, completion: nil)
+      }else{
+          self.presentedViewController!.present(alertController, animated: true, completion: nil)
+      }
+      
+    }
   }
   
   private func moveToGalaxies() {

@@ -11,7 +11,7 @@ class UniverseViewController: UIViewController {
   
   @IBOutlet private weak var collectionView: UICollectionView!
   
-  let universe = Universe(timer: TimeTracker(withTimeInterval: 1))
+  let universe = Universe(timer: TimeTracker(withTimeInterval: 0.1))
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,6 +28,7 @@ class UniverseViewController: UIViewController {
   
   private func setupDelegates() {
     collectionView.dataSource = self
+    
     collectionView.delegate = self
     universe.eventsDelegate = self
   }
@@ -48,6 +49,17 @@ extension UniverseViewController: UniverseEventsDelegate {
   }
 }
 
+extension UniverseViewController: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    let storyboard = UIStoryboard(name: Constants.storyboardName, bundle: nil)
+    let destination = storyboard.instantiateViewController(identifier: Constants.galaxyVCid) as! GalaxyViewController
+      destination.galaxy = self.universe.galaxies[indexPath.row]
+      self.navigationController?.pushViewController(destination, animated: true)
+    
+   
+  }
+}
 
 extension UniverseViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -76,13 +88,5 @@ extension UniverseViewController: UICollectionViewDataSource {
     return cell
   }
   
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
-    let storyboard = UIStoryboard(name: Constants.storyboardName, bundle: nil)
-    let destination = storyboard.instantiateViewController(identifier: Constants.galaxyVCid) as! GalaxyViewController
-      destination.galaxy = self.universe.galaxies[indexPath.row]
-      self.navigationController?.pushViewController(destination, animated: true)
-    
-   
-  }
+ 
 }

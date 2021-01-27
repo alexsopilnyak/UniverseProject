@@ -23,6 +23,7 @@ class StellarSystemViewController: UIViewController {
     
     }
   
+ 
   private func setupCell() {
     let nibCell = UINib(nibName: Constants.cellID, bundle: nil)
     collectionView.register(nibCell, forCellWithReuseIdentifier: Constants.cellID)
@@ -48,7 +49,13 @@ class StellarSystemViewController: UIViewController {
       self?.moveToGalaxies()
     }
     alertController.addAction(okAction)
-    self.present(alertController, animated: true, completion: nil)
+    DispatchQueue.main.async {
+      if self.presentedViewController==nil{
+        self.present(alertController, animated: true, completion: nil)
+      }else{
+          self.presentedViewController!.present(alertController, animated: true, completion: nil)
+      }
+    }
   }
   
   private func moveToGalaxies() {
@@ -113,6 +120,6 @@ extension StellarSystemViewController: StellarSystemEventsDelegate{
   }
   
   func stellarSystemDestroyed() {
-    moveToGalaxies()
+   moveToGalaxies()
   }
 }
