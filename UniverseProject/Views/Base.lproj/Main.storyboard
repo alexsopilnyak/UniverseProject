@@ -27,10 +27,10 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SLr-ns-Mat" customClass="ItemCollectionViewCell" customModule="UniverseProject" customModuleProvider="target">
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="SLr-ns-Mat" customClass="ItemCollectionViewCell" customModule="UniverseProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aKP-K3-f1Q">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="vai-31-DRX">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
@@ -51,7 +51,7 @@
                     <navigationItem key="navigationItem" id="EuJ-Kh-SrP"/>
                     <connections>
                         <outlet property="collectionView" destination="rca-WV-eoV" id="IJM-cF-Nni"/>
-                        <segue destination="dg4-Es-XLh" kind="show" id="TAZ-WD-H9Z"/>
+                        <segue destination="dg4-Es-XLh" kind="show" identifier="GalaxyViewController" id="TAZ-WD-H9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4HT-H6-x14" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -76,7 +76,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="saW-vQ-g0I" customClass="ItemCollectionViewCell" customModule="UniverseProject" customModuleProvider="target">
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="saW-vQ-g0I" customClass="ItemCollectionViewCell" customModule="UniverseProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YSA-Da-TmH">
@@ -100,7 +100,7 @@
                     <navigationItem key="navigationItem" id="cit-k9-jjl"/>
                     <connections>
                         <outlet property="collectionView" destination="mcI-YL-lBb" id="o8z-8v-o8e"/>
-                        <segue destination="zP6-Vx-2k9" kind="show" id="AmU-eH-AvX"/>
+                        <segue destination="zP6-Vx-2k9" kind="show" identifier="StellarSystemViewController" id="AmU-eH-AvX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsc-xD-133" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -125,7 +125,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="EuW-rC-gOf" customClass="ItemCollectionViewCell" customModule="UniverseProject" customModuleProvider="target">
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="EuW-rC-gOf" customClass="ItemCollectionViewCell" customModule="UniverseProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fQq-eQ-dHO">
@@ -173,7 +173,7 @@
                     <connections>
                         <outlet property="collectionView" destination="G72-IY-8IL" id="Iv4-3j-ilR"/>
                         <outlet property="starLabel" destination="sGP-KX-wit" id="Sxo-bK-YL6"/>
-                        <segue destination="vl2-Hl-aUJ" kind="show" id="XwK-a9-4ef"/>
+                        <segue destination="vl2-Hl-aUJ" kind="show" identifier="PlanetViewController" id="XwK-a9-4ef"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pa-3B-Uj4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -198,7 +198,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9yr-zz-nF1" customClass="ItemCollectionViewCell" customModule="UniverseProject" customModuleProvider="target">
+                                    <collectionViewCell autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ItemCollectionViewCell" id="9yr-zz-nF1" customClass="ItemCollectionViewCell" customModule="UniverseProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yhi-5b-mX4">

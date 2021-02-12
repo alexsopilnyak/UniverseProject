@@ -90,9 +90,9 @@
             </constraints>
             <size key="customSize" width="378" height="50"/>
             <connections>
-                <outlet property="count" destination="w6H-ff-Bxy" id="Alg-K7-jPM"/>
-                <outlet property="elementsNumber" destination="Jp0-YZ-Tn3" id="Kms-dR-YVa"/>
-                <outlet property="label" destination="Iyt-kc-LaD" id="6S2-LH-Tz4"/>
+                <outlet property="ageLabel" destination="w6H-ff-Bxy" id="Alg-K7-jPM"/>
+                <outlet property="elementsNumberLabel" destination="Jp0-YZ-Tn3" id="Kms-dR-YVa"/>
+                <outlet property="idLabel" destination="Iyt-kc-LaD" id="6S2-LH-Tz4"/>
             </connections>
             <point key="canvasLocation" x="369.56521739130437" y="30.803571428571427"/>
         </collectionViewCell>

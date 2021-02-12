@@ -9,7 +9,7 @@ import Foundation
 
 final class Planet: CelesticalBody {
   weak var delegate: StellarPlanetSystemDelegate?
-  weak var eventsDelegate: PlanetEventsDelegate?
+  weak var eventsDelegate: EventsDelegate?
   
   let hostStar: Star
   let id: String
@@ -19,7 +19,7 @@ final class Planet: CelesticalBody {
   var age = 0 {
     willSet{
       guard newValue % 10 == 0 else { return }
-        self.eventsDelegate?.ageUpdated()
+        self.eventsDelegate?.elementDidUpdate()
       }
   }
   
@@ -35,7 +35,7 @@ final class Planet: CelesticalBody {
   }
   
   deinit {
-    eventsDelegate?.planetDestroyed()
+    eventsDelegate?.elementDestroyed()
   }
   
   private func spawnSatellites() {

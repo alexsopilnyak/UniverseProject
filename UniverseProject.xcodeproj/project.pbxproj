@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E501EDD825BA371F0094FFF2 /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EDD725BA371F0094FFF2 /* TimeTracker.swift */; };
-		E501EDDB25BACB940094FFF2 /* UniverseEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EDDA25BACB940094FFF2 /* UniverseEventsDelegate.swift */; };
 		E501EE5825BB5D5F0094FFF2 /* StellarSystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EE5725BB5D5F0094FFF2 /* StellarSystemViewController.swift */; };
 		E501EE5B25BB5D800094FFF2 /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EE5A25BB5D800094FFF2 /* PlanetViewController.swift */; };
 		E501EE5E25BB5DC20094FFF2 /* UniverseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E501EE5D25BB5DC20094FFF2 /* UniverseViewController.swift */; };
@@ -32,18 +31,24 @@
 		E560E31D25B04E7200D4817E /* PlanetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560E31C25B04E7200D4817E /* PlanetType.swift */; };
 		E560E32025B0512800D4817E /* GalaxyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560E31F25B0512800D4817E /* GalaxyType.swift */; };
 		E560E32525B057E700D4817E /* EvolutionStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E560E32425B057E700D4817E /* EvolutionStage.swift */; };
-		E56A635925BC7361009B7B92 /* GalaxyEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A635825BC7361009B7B92 /* GalaxyEventsDelegate.swift */; };
-		E56A636225BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A636125BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift */; };
-		E56A638625BF4EC9009B7B92 /* PlanetEventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56A638525BF4EC9009B7B92 /* PlanetEventsDelegate.swift */; };
 		E59086F425B207450025A591 /* Satellite.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59086F325B207450025A591 /* Satellite.swift */; };
 		E5D4C57425CD7E23001C248F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5D4C57225CD7E23001C248F /* Main.storyboard */; };
+		E5D4C58225D32CF3001C248F /* UniverseCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C58125D32CF3001C248F /* UniverseCollectionViewDataSource.swift */; };
+		E5D4C58525D32DE3001C248F /* UniverseCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C58425D32DE3001C248F /* UniverseCollectionViewDelegate.swift */; };
+		E5D4C58825D331C2001C248F /* DataPassDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C58725D331C2001C248F /* DataPassDelegate.swift */; };
+		E5D4C58E25D5D141001C248F /* EventsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C58D25D5D141001C248F /* EventsDelegate.swift */; };
+		E5D4C59525D5D541001C248F /* GalaxyCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C59425D5D541001C248F /* GalaxyCollectionViewDataSource.swift */; };
+		E5D4C59825D5D54F001C248F /* GalaxyCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C59725D5D54F001C248F /* GalaxyCollectionViewDelegate.swift */; };
+		E5D4C59B25D65628001C248F /* StellarSystemCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C59A25D65628001C248F /* StellarSystemCollectionViewDataSource.swift */; };
+		E5D4C59E25D65655001C248F /* StellarSystemCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C59D25D65655001C248F /* StellarSystemCollectionViewDelegate.swift */; };
+		E5D4C5A125D65ADF001C248F /* PlanetCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C5A025D65ADF001C248F /* PlanetCollectionViewDataSource.swift */; };
+		E5D4C5A525D65AFA001C248F /* PlanetCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D4C5A425D65AFA001C248F /* PlanetCollectionViewDelegate.swift */; };
 		E5EDFAC125BC3DB900DED421 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EDFABF25BC3DB900DED421 /* ItemCollectionViewCell.swift */; };
 		E5EDFAC225BC3DB900DED421 /* ItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5EDFAC025BC3DB900DED421 /* ItemCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E501EDD725BA371F0094FFF2 /* TimeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
-		E501EDDA25BACB940094FFF2 /* UniverseEventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseEventsDelegate.swift; sourceTree = "<group>"; };
 		E501EE5725BB5D5F0094FFF2 /* StellarSystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellarSystemViewController.swift; sourceTree = "<group>"; };
 		E501EE5A25BB5D800094FFF2 /* PlanetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
 		E501EE5D25BB5DC20094FFF2 /* UniverseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseViewController.swift; sourceTree = "<group>"; };
@@ -69,11 +74,18 @@
 		E560E31C25B04E7200D4817E /* PlanetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetType.swift; sourceTree = "<group>"; };
 		E560E31F25B0512800D4817E /* GalaxyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyType.swift; sourceTree = "<group>"; };
 		E560E32425B057E700D4817E /* EvolutionStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionStage.swift; sourceTree = "<group>"; };
-		E56A635825BC7361009B7B92 /* GalaxyEventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyEventsDelegate.swift; sourceTree = "<group>"; };
-		E56A636125BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellarSystemEventsDelegate.swift; sourceTree = "<group>"; };
-		E56A638525BF4EC9009B7B92 /* PlanetEventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetEventsDelegate.swift; sourceTree = "<group>"; };
 		E59086F325B207450025A591 /* Satellite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Satellite.swift; sourceTree = "<group>"; };
 		E5D4C57325CD7E23001C248F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E5D4C58125D32CF3001C248F /* UniverseCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		E5D4C58425D32DE3001C248F /* UniverseCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		E5D4C58725D331C2001C248F /* DataPassDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPassDelegate.swift; sourceTree = "<group>"; };
+		E5D4C58D25D5D141001C248F /* EventsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDelegate.swift; sourceTree = "<group>"; };
+		E5D4C59425D5D541001C248F /* GalaxyCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		E5D4C59725D5D54F001C248F /* GalaxyCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		E5D4C59A25D65628001C248F /* StellarSystemCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellarSystemCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		E5D4C59D25D65655001C248F /* StellarSystemCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StellarSystemCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		E5D4C5A025D65ADF001C248F /* PlanetCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		E5D4C5A425D65AFA001C248F /* PlanetCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		E5EDFABF25BC3DB900DED421 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		E5EDFAC025BC3DB900DED421 /* ItemCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,10 +178,10 @@
 			isa = PBXGroup;
 			children = (
 				E5EDFABE25BC3D6B00DED421 /* Cell */,
-				E501EE5D25BB5DC20094FFF2 /* UniverseViewController.swift */,
-				E560E2DC25B031CF00D4817E /* GalaxyViewController.swift */,
-				E501EE5725BB5D5F0094FFF2 /* StellarSystemViewController.swift */,
-				E501EE5A25BB5D800094FFF2 /* PlanetViewController.swift */,
+				E5D4C57825D32C09001C248F /* Universe */,
+				E5D4C57B25D32C22001C248F /* Galaxy */,
+				E5D4C57D25D32C33001C248F /* StellarSystem */,
+				E5D4C57F25D32C43001C248F /* Planet */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,10 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				E501EE5325BB53CB0094FFF2 /* Model Protocols */,
-				E501EDDA25BACB940094FFF2 /* UniverseEventsDelegate.swift */,
-				E56A635825BC7361009B7B92 /* GalaxyEventsDelegate.swift */,
-				E56A636125BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift */,
-				E56A638525BF4EC9009B7B92 /* PlanetEventsDelegate.swift */,
+				E5D4C58D25D5D141001C248F /* EventsDelegate.swift */,
+				E5D4C58725D331C2001C248F /* DataPassDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -214,6 +224,46 @@
 				E560E32425B057E700D4817E /* EvolutionStage.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		E5D4C57825D32C09001C248F /* Universe */ = {
+			isa = PBXGroup;
+			children = (
+				E501EE5D25BB5DC20094FFF2 /* UniverseViewController.swift */,
+				E5D4C58125D32CF3001C248F /* UniverseCollectionViewDataSource.swift */,
+				E5D4C58425D32DE3001C248F /* UniverseCollectionViewDelegate.swift */,
+			);
+			path = Universe;
+			sourceTree = "<group>";
+		};
+		E5D4C57B25D32C22001C248F /* Galaxy */ = {
+			isa = PBXGroup;
+			children = (
+				E560E2DC25B031CF00D4817E /* GalaxyViewController.swift */,
+				E5D4C59425D5D541001C248F /* GalaxyCollectionViewDataSource.swift */,
+				E5D4C59725D5D54F001C248F /* GalaxyCollectionViewDelegate.swift */,
+			);
+			path = Galaxy;
+			sourceTree = "<group>";
+		};
+		E5D4C57D25D32C33001C248F /* StellarSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E501EE5725BB5D5F0094FFF2 /* StellarSystemViewController.swift */,
+				E5D4C59A25D65628001C248F /* StellarSystemCollectionViewDataSource.swift */,
+				E5D4C59D25D65655001C248F /* StellarSystemCollectionViewDelegate.swift */,
+			);
+			path = StellarSystem;
+			sourceTree = "<group>";
+		};
+		E5D4C57F25D32C43001C248F /* Planet */ = {
+			isa = PBXGroup;
+			children = (
+				E501EE5A25BB5D800094FFF2 /* PlanetViewController.swift */,
+				E5D4C5A025D65ADF001C248F /* PlanetCollectionViewDataSource.swift */,
+				E5D4C5A425D65AFA001C248F /* PlanetCollectionViewDelegate.swift */,
+			);
+			path = Planet;
 			sourceTree = "<group>";
 		};
 		E5EDFABE25BC3D6B00DED421 /* Cell */ = {
@@ -296,34 +346,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E56A636225BCA2F0009B7B92 /* StellarSystemEventsDelegate.swift in Sources */,
 				E560E2DD25B031CF00D4817E /* GalaxyViewController.swift in Sources */,
+				E5D4C58525D32DE3001C248F /* UniverseCollectionViewDelegate.swift in Sources */,
+				E5D4C59E25D65655001C248F /* StellarSystemCollectionViewDelegate.swift in Sources */,
+				E5D4C58825D331C2001C248F /* DataPassDelegate.swift in Sources */,
 				E560E31A25B04D7D00D4817E /* StarType.swift in Sources */,
 				E540706125B8E38B00CEDFEC /* BlackHole.swift in Sources */,
 				E501EE5E25BB5DC20094FFF2 /* UniverseViewController.swift in Sources */,
 				E560E30125B034AC00D4817E /* Galaxy.swift in Sources */,
 				E560E32025B0512800D4817E /* GalaxyType.swift in Sources */,
-				E56A635925BC7361009B7B92 /* GalaxyEventsDelegate.swift in Sources */,
 				E501EDD825BA371F0094FFF2 /* TimeTracker.swift in Sources */,
-				E501EDDB25BACB940094FFF2 /* UniverseEventsDelegate.swift in Sources */,
 				E560E30D25B0363600D4817E /* CelesticalBody.swift in Sources */,
 				E560E2D925B031CF00D4817E /* AppDelegate.swift in Sources */,
 				E560E30A25B0351500D4817E /* Planet.swift in Sources */,
 				E560E2FD25B0348500D4817E /* Universe.swift in Sources */,
 				E560E2DB25B031CF00D4817E /* SceneDelegate.swift in Sources */,
+				E5D4C5A525D65AFA001C248F /* PlanetCollectionViewDelegate.swift in Sources */,
 				E560E32525B057E700D4817E /* EvolutionStage.swift in Sources */,
 				E560E2F925B0342400D4817E /* Constants.swift in Sources */,
+				E5D4C5A125D65ADF001C248F /* PlanetCollectionViewDataSource.swift in Sources */,
+				E5D4C59525D5D541001C248F /* GalaxyCollectionViewDataSource.swift in Sources */,
 				E540705625B8DFF400CEDFEC /* GalaxyDelegate.swift in Sources */,
 				E540705A25B8E01B00CEDFEC /* StellarPlanetSystemDelegate.swift in Sources */,
+				E5D4C58225D32CF3001C248F /* UniverseCollectionViewDataSource.swift in Sources */,
 				E501EE5B25BB5D800094FFF2 /* PlanetViewController.swift in Sources */,
+				E5D4C59B25D65628001C248F /* StellarSystemCollectionViewDataSource.swift in Sources */,
 				E540705E25B8E0F200CEDFEC /* AgeUpdator.swift in Sources */,
 				E59086F425B207450025A591 /* Satellite.swift in Sources */,
+				E5D4C59825D5D54F001C248F /* GalaxyCollectionViewDelegate.swift in Sources */,
 				E560E31725B0402300D4817E /* StellarPlanetSystem.swift in Sources */,
 				E560E30725B034D900D4817E /* Star.swift in Sources */,
-				E56A638625BF4EC9009B7B92 /* PlanetEventsDelegate.swift in Sources */,
 				E560E31D25B04E7200D4817E /* PlanetType.swift in Sources */,
 				E5EDFAC125BC3DB900DED421 /* ItemCollectionViewCell.swift in Sources */,
 				E501EE5825BB5D5F0094FFF2 /* StellarSystemViewController.swift in Sources */,
+				E5D4C58E25D5D141001C248F /* EventsDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

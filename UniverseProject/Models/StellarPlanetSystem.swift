@@ -11,7 +11,7 @@ import Foundation
 final class StellarPlanetSystem {
   
   weak var delegate: GalaxyDelegate?
-  weak var eventsDelegate: StellarSystemEventsDelegate?
+  weak var eventsDelegate: EventsDelegate?
   
   var hostStar: Star?
   lazy var planets =  [Planet]()
@@ -20,7 +20,7 @@ final class StellarPlanetSystem {
     willSet {
       if newValue % 10 == 0 {
         spawnPlanet()
-        eventsDelegate?.planetsCountDidUpdate()
+        eventsDelegate?.elementDidUpdate()
         
       }
     }
@@ -39,7 +39,7 @@ final class StellarPlanetSystem {
   }
   
   deinit {
-    eventsDelegate?.stellarSystemDestroyed()
+    eventsDelegate?.elementDestroyed()
   }
   
 

@@ -8,12 +8,14 @@
 import Foundation
 final class Universe {
   
+  static let shared = Universe(timer: TimeTracker(withTimeInterval: 0.1))
+  
   let id = "\(String(describing: Universe.self))_\(Universe.limitWeight * Universe.limitRadius)"
   
   static let limitWeight = Double.random(in: Constants.limitWeightRange)
   static let limitRadius = Double.random(in: Constants.limitRadiusRange)
   
-  weak var eventsDelegate: UniverseEventsDelegate?
+  weak var eventsDelegate: EventsDelegate?
   
   private var timer: TimeTracker?
   
@@ -25,7 +27,7 @@ final class Universe {
       
       if newValue % 10 == 0 {
         self.galaxyBorn()
-        self.eventsDelegate?.galaxiesCountDidUpdate()
+        self.eventsDelegate?.elementDidUpdate()
       }
       if newValue % 30 == 0 {
         self.collapse()

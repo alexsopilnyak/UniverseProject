@@ -8,15 +8,18 @@
 import UIKit
 
 class ItemCollectionViewCell: UICollectionViewCell {
-  @IBOutlet weak var label: UILabel!
-  @IBOutlet weak var count: UILabel!
-  @IBOutlet weak var elementsNumber: UILabel!
+  @IBOutlet private weak var idLabel: UILabel!
+  @IBOutlet private weak var ageLabel: UILabel!
+  @IBOutlet private weak var elementsNumberLabel: UILabel!
+  
   override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-  
-
     }
 
+  func configureCell(id: String, age: String, elementsNumber: Int) {
+    idLabel.text = id
+    ageLabel.text = age
+    elementsNumberLabel.text = elementsNumber.description
+  }
  
 }

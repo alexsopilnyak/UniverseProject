@@ -9,7 +9,7 @@ import Foundation
 
 final class Galaxy {
 
-  weak var eventsDelegate: GalaxyEventsDelegate?
+  weak var eventsDelegate: EventsDelegate?
   
   let id: String
   var type = GalaxyType.allCases.randomElement()!
@@ -21,7 +21,7 @@ final class Galaxy {
     willSet {
       if newValue % 10 == 0 {
         stellarSystemBorn()
-        eventsDelegate?.galaxyElementsCountDidUpdate()
+        eventsDelegate?.elementDidUpdate()
       }
     }
   }
@@ -45,7 +45,7 @@ final class Galaxy {
  }
   
   deinit {
-    eventsDelegate?.galaxyDestroyed()
+    eventsDelegate?.elementDestroyed()
 }
   
   private func stellarSystemBorn() {
@@ -81,7 +81,7 @@ extension Galaxy: GalaxyDelegate {
     stellarPlanetSystems.remove(at: stellarSystemIndex)
     let blackHole = BlackHole(id: "BlackHole_\(stellarSystem.id)")
     blackHoles.append(blackHole)
-    eventsDelegate?.galaxyElementsCountDidUpdate()
+    eventsDelegate?.elementDidUpdate()
   }
   
 }
